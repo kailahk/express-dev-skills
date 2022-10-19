@@ -3,12 +3,20 @@
 <ul>
     <% skills.forEach(function(skl) { %>
         <li>
+            <form 
+                action="/skills/<%= skl.id %>?_method=DELETE" 
+                method="POST"
+                class="delete-form"
+            >
+                <button type="submit">x</button>
+            </form>
             <a href="/skills/<%= skl.id %>"><%= skl.skill %></a>
-            | Fun Level:
+            - Fun Level:
             <%= skl.funLevel %>
         </li>
     <% }); %>
 </ul>
+<a href="/skills/new">Add new skill</a>
 
 <%- include('../partials/footer') %>
     
